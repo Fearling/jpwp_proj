@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumentacja Kodowa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        code {
+            display: block;
+            background: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #333;
+            white-space: pre-wrap;
+        }
+        pre {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dokumentacja Kodowa</h1>
+    </header>
+    <section>
+        <h2>Funkcja: <code>SaveLastVisitedLevel(int level)</code></h2>
+        <p>Zapisuje numer ostatnio odwiedzonego poziomu do pliku tekstowego.</p>
+        <h3>Kod:</h3>
+        <code>
+private void SaveLastVisitedLevel(int level)
+{
+    try
+    {
+        string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "savegame.txt");
+        System.IO.File.WriteAllText(filePath, level.ToString());
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show($"Nie udało się zapisać gry: {ex.Message}");
+    }
+}
+        </code>
+        <h3>Opis:</h3>
+        <p>Funkcja zapisuje numer poziomu do pliku <code>savegame.txt</code> znajdującego się w katalogu aplikacji. Jeśli wystąpi błąd, wyświetlane jest okno dialogowe z informacją o problemie.</p>
+    </section>
+    <section>
+        <h2>Funkcja: <code>LoadLastVisitedLevel()</code></h2>
+        <p>Wczytuje numer ostatnio odwiedzonego poziomu z pliku tekstowego.</p>
+        <h3>Kod:</h3>
+        <code>
+private int LoadLastVisitedLevel()
+{
+    try
+    {
+        string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "savegame.txt");
+
+        if (System.IO.File.Exists(filePath))
+        {
+            string savedLevel = System.IO.File.ReadAllText(filePath);
+            if (int.TryParse(savedLevel, out int level))
+            {
+                return level;
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show($"Nie udało się wczytać gry: {ex.Message}");
+    }
+
+    return 1; // Domyślnie zaczynamy od poziomu 1
+}
+        </code>
+        <h3>Opis:</h3>
+        <p>Funkcja próbuje wczytać numer poziomu z pliku <code>savegame.txt</code>. Jeśli plik nie istnieje lub dane są niepoprawne, gra rozpoczyna się od poziomu 1. W przypadku błędu wyświetlane jest okno dialogowe z komunikatem.</p>
+    </section>
+    <section>
+        <h2>Funkcja: <code>ShowInputDialog(string question)</code></h2>
+        <p>Wyświetla okno dialogowe z pytaniem i polem do wprowadzenia odpowiedzi przez użytkownika.</p>
+        <h3>Kod:</h3>
+        <code>
+private string ShowInputDialog(string question)
+{
+    Form inputForm = new Form();
+    Label questionLabel = new Label() { Text = question, Dock = DockStyle.Top };
+    TextBox inputBox = new TextBox() { Dock = DockStyle.Top };
+    Button submitButton = new Button() { Text = "OK", Dock = DockStyle.Bottom };
+    inputForm.Controls.Add(submitButton);
+    inputForm.Controls.Add(inputBox);
+    inputForm.Controls.Add(questionLabel);
+    inputForm.ClientSize = new Size(300, 120);
+    inputForm.StartPosition = FormStartPosition.CenterParent;
+
+    string userInput = null;
+    submitButton.Click += (s, e) => { userInput = inputBox.Text; inputForm.Close(); };
+
+    inputForm.ShowDialog();
+    return userInput;
+}
+        </code>
+        <h3>Opis:</h3>
+        <p>Funkcja tworzy formularz z pytaniem i polem tekstowym. Po kliknięciu przycisku "OK" zwraca tekst wprowadzony przez użytkownika. Formularz jest wyświetlany jako modalne okno dialogowe.</p>
+    </section>
+    <section>
+        <h2>Funkcja: <code>RestartGame()</code></h2>
+        <p>Resetuje grę do stanu początkowego i wczytuje bieżący poziom.</p>
+        <h3>Kod:</h3>
+        <code>
+private void RestartGame()
+{
+    lives = 5; // Przywrócenie żyć
+    LoadLevel(currentLevel);
+}
+        </code>
+        <h3>Opis:</h3>
+        <p>Funkcja ustawia liczbę żyć na wartość początkową i ponownie wczytuje aktualny poziom gry.</p>
+    </section>
+    <section>
+        <h2>Funkcja: <code>ResetLevel()</code></h2>
+        <p>Resetuje poziom gry, przywracając początkową liczbę żyć i ponownie go wczytując.</p>
+        <h3>Kod:</h3>
+        <code>
+private void ResetLevel()
+{
+    lives = 5; // Przywrócenie pełnej liczby żyć
+    LoadLevel(currentLevel); // Ponowne załadowanie bieżącego poziomu
+}
+        </code>
+        <h3>Opis:</h3>
+        <p>Funkcja umożliwia graczowi ponowne rozpoczęcie bieżącego poziomu z pełną liczbą żyć.</p>
+    </section>
+<header>
+        <h1>Dokumentacja Kodowa</h1>
+    </header>
+    <section>
+        <h2>Funkcja: <code>LoadLevel(int level)</code></h2>
+        <p>Załadowanie poziomu gry w zależności od jego numeru. Funkcja przygotowuje wszystkie elementy poziomu, takie jak:</p>
+        <ul>
+            <li>Pozycja gracza</li>
+            <li>Obszary z pytaniami</li>
+            <li>Obszary blokujące</li>
+            <li>Grafika tła i inne komponenty wizualne</li>
+        </ul>
+        <h3>Kod:</h3>
+        <code>
+            private void LoadLevel(int level) { ... }
+        </code>
+        <h3>Opis:</h3>
+        <p>Funkcja resetuje stan gry, ładuje odpowiednią grafikę tła i dodaje elementy interaktywne specyficzne dla poziomu. Dodatkowo, wyświetla wprowadzenie do poziomu oraz zapisuje ostatnio odwiedzony poziom w celu jego późniejszego przywrócenia.</p>
+    </section>
+    <section>
+        <h2>Funkcja: <code>RemoveQuestionArea(int index)</code></h2>
+        <p>Usuwa obszar pytania po udzieleniu poprawnej odpowiedzi.</p>
+        <h3>Kod:</h3>
+        <code>
+            private void RemoveQuestionArea(int index) { ... }
+        </code>
+        <h3>Opis:</h3>
+        <p>Funkcja usuwa wizualną reprezentację obszaru pytania i sprawdza, czy wszystkie pytania na poziomie zostały rozwiązane. Jeśli tak, umożliwia przejście na kolejny poziom poprzez pokazanie pola zmiany poziomu.</p>
+    </section>
+    <section>
+        <h2>Funkcja: <code>ShowLevelIntroduction(int level)</code></h2>
+        <p>Wyświetla wprowadzenie do poziomu w formie okienka z opisem fabularnym i wskazówkami dla gracza.</p>
+        <h3>Kod:</h3>
+        <code>
+            private void ShowLevelIntroduction(int level) { ... }
+        </code>
+        <h3>Opis:</h3>
+        <p>W zależności od numeru poziomu funkcja pokazuje dedykowany tekst opisujący cel gry i szczegóły mechaniki na danym poziomie. Tekst jest wyświetlany w okienku dialogowym.</p>
+    </section>
+    <section>
+        <h2>Funkcja: <code>CreateQuestionArea(Rectangle area, string imagePath)</code></h2>
+        <p>Tworzy obszar pytaniowy, który wyświetla grafikę i jest powiązany z zagadką matematyczną.</p>
+        <h3>Kod:</h3>
+        <code>
+            private void CreateQuestionArea(Rectangle area, string imagePath) { ... }
+        </code>
+        <h3>Opis:</h3>
+        <p>Funkcja dodaje nowy obszar pytaniowy na mapie, wykorzystując podane wymiary (<code>Rectangle area</code>) oraz ścieżkę do obrazu (<code>string imagePath</code>).</p>
+    </section>
+    <section>
+        <h2>Funkcja: <code>GenerateAndAskQuestion(int areaIndex)</code></h2>
+        <p>Generuje pytanie matematyczne i wyświetla je graczowi. Weryfikuje odpowiedź oraz obsługuje konsekwencje błędnej odpowiedzi.</p>
+        <h3>Kod:</h3>
+        <code>
+            private void GenerateAndAskQuestion(int areaIndex) { ... }
+        </code>
+        <h3>Opis:</h3>
+        <p>Funkcja obsługuje logikę generowania pytania w zależności od bieżącego poziomu. W przypadku poprawnej odpowiedzi obszar pytania jest usuwany, a gracz otrzymuje punkty. W przypadku błędnej odpowiedzi gracz traci życie.</p>
+    </section>
+    <section>
+        <h2>Funkcja: <code>ShowMainMenu()</code></h2>
+        <p>Wyświetla główne menu gry z opcjami rozpoczęcia nowej gry lub wczytania ostatniego zapisu.</p>
+        <h3>Kod:</h3>
+        <code>
+            private void ShowMainMenu() { ... }
+        </code>
+        <h3>Opis:</h3>
+        <p>Funkcja wyświetla formularz z przyciskami do wyboru nowej gry lub wczytania istniejącej. W zależności od wyboru gracza, gra jest resetowana lub ładowana od zapisanego poziomu.</p>
+    </section>
+</body>
+</html>
