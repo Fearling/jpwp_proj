@@ -21,6 +21,8 @@ public class MagicSchoolGame : Form
     private List<Rectangle> questionAreas = new List<Rectangle>(); // Lista obszarów wywołujących pytania
     private List<Rectangle> blockedAreas = new List<Rectangle>(); // Lista obszarów blokujących ruch
     private List<Panel> areaPanels = new List<Panel>(); // Lista paneli graficznych dla obszarów
+    List<Control> areaGraphix = new List<Control>();
+
 
     private int currentLevel = 1; // Obecny poziom
 
@@ -31,21 +33,24 @@ public class MagicSchoolGame : Form
 
     private List<(Rectangle Area, string Text)> textAreas = new List<(Rectangle, string)>(); // Lista obszarów z tekstami
 
-    private void CreateTextArea(Rectangle area, string text)
+    private void CreateTextArea(Rectangle area, string text, string imagePath)
     {
         textAreas.Add((area, text));
 
-        Panel panel = new Panel
+        PictureBox pictureBox = new PictureBox
         {
             Location = new Point(area.X, area.Y),
             Size = new Size(area.Width, area.Height),
-            BorderStyle = BorderStyle.FixedSingle,
-            BackColor = Color.Green // Kolor obszaru tekstowego
+            Image = Image.FromFile(imagePath), // Wczytaj grafikę
+            SizeMode = PictureBoxSizeMode.StretchImage,
+            BackColor = Color.Transparent // Ustawienie przezroczystości
         };
 
-        areaPanels.Add(panel);
-        backgroundPictureBox.Controls.Add(panel);
+        areaGraphix.Add(pictureBox); // Dodaj do listy paneli
+        backgroundPictureBox.Controls.Add(pictureBox); // Dodaj do tła jako kontrolkę
+        pictureBox.Parent = backgroundPictureBox; // Ustawienie rodzica dla przezroczystości
     }
+
 
 
     public MagicSchoolGame()
@@ -70,8 +75,13 @@ public class MagicSchoolGame : Form
         allQuestionsAnswered = false; // Resetowanie statusu pytań
         areaPanels.ForEach(panel => backgroundPictureBox.Controls.Remove(panel));
         areaPanels.Clear();
+        areaGraphix.ForEach(control => backgroundPictureBox.Controls.Remove(control));
+        areaGraphix.Clear();
+        questionAreas.Clear();
+
 
         SaveLastVisitedLevel(level);
+        ShowLevelIntroduction(level);
 
         if (backgroundPictureBox != null)
         {
@@ -84,25 +94,53 @@ public class MagicSchoolGame : Form
         switch (level)
         {
             case 1:
-                backgroundPictureBox.Image = Image.FromFile("C:\\JPWP_projekt\\school_map.jpg");
-                CreateQuestionArea(new Rectangle(300, 150, 100, 50));
-                CreateQuestionArea(new Rectangle(100, 200, 100, 50));
+                backgroundPictureBox.Image = Image.FromFile("C:\\JPWP_projekt\\school_map.png");
+                CreateQuestionArea(new Rectangle(200, 30, 40, 40), "C:\\JPWP_projekt\\goblin.png");
+                CreateQuestionArea(new Rectangle(100, 200, 40, 40), "C:\\JPWP_projekt\\goblin.png");
 
-                CreateTextArea(new Rectangle(400, 100, 100, 50), "Witaj w magicznej szkole!");
-                CreateTextArea(new Rectangle(200, 250, 100, 50), "Uważaj na przeszkody!");
+                CreateTextArea(new Rectangle(400, 100, 30, 30), "Witaj w magicznej szkole!", "C:\\JPWP_projekt\\player_icon.png");
+                CreateTextArea(new Rectangle(200, 250, 30, 30), "Uważaj na przeszkody!", "C:\\JPWP_projekt\\player_icon.png");
 
-                CreateBlockedArea(new Rectangle(200, 100, 100, 50));
+                CreateBlockedArea(new Rectangle(50, 90, 540, 10));
+                CreateBlockedArea(new Rectangle(45, 200, 360, 10));
+                CreateBlockedArea(new Rectangle(500, 200, 100, 10));
+                CreateBlockedArea(new Rectangle(340, 10, 10, 80));
+                CreateBlockedArea(new Rectangle(400, 200, 10, 160));
                 break;
             case 2:
-                backgroundPictureBox.Image = Image.FromFile("C:\\JPWP_projekt\\school_map1.jpg");
-                CreateQuestionArea(new Rectangle(200, 150, 100, 50));
+                backgroundPictureBox.Image = Image.FromFile("C:\\JPWP_projekt\\school_map1.png");
+                CreateQuestionArea(new Rectangle(160, 100, 40, 40), "C:\\JPWP_projekt\\roslinka.png");
+                CreateQuestionArea(new Rectangle(80, 60, 40, 40), "C:\\JPWP_projekt\\roslinka.png");
+                CreateQuestionArea(new Rectangle(500, 60, 40, 40), "C:\\JPWP_projekt\\roslinka.png");
+                CreateQuestionArea(new Rectangle(420, 60, 40, 40), "C:\\JPWP_projekt\\roslinka.png");
 
-                CreateTextArea(new Rectangle(350, 250, 100, 50), "Drugi poziom jest trudniejszy!");
-                CreateTextArea(new Rectangle(150, 150, 100, 50), "Powodzenia!");
+                CreateTextArea(new Rectangle(350, 250, 30, 30), "Drugi poziom jest trudniejszy!", "C:\\JPWP_projekt\\player_icon.png");
+                CreateTextArea(new Rectangle(150, 150, 30, 30), "Powodzenia!", "C:\\JPWP_projekt\\player_icon.png");
 
-                CreateBlockedArea(new Rectangle(100, 100, 150, 50));
+                CreateBlockedArea(new Rectangle(70, 100, 100, 50));
+                CreateBlockedArea(new Rectangle(130, 0, 50, 150));
+
+                CreateBlockedArea(new Rectangle(450, 100, 100, 50));
+                CreateBlockedArea(new Rectangle(450, 0, 50, 150));
+                break;
+            case 3:
+                backgroundPictureBox.Image = Image.FromFile("C:\\JPWP_projekt\\school_map2.png");
+                CreateQuestionArea(new Rectangle(160, 100, 40, 40), "C:\\JPWP_projekt\\duch.png");
+                CreateQuestionArea(new Rectangle(80, 60, 40, 40), "C:\\JPWP_projekt\\duch.png");
+                CreateQuestionArea(new Rectangle(500, 60, 40, 40), "C:\\JPWP_projekt\\duch.png");
+                CreateQuestionArea(new Rectangle(420, 60, 40, 40), "C:\\JPWP_projekt\\duch.png");
+
+                CreateTextArea(new Rectangle(350, 250, 30, 30), "Drugi poziom jest trudniejszy!", "C:\\JPWP_projekt\\player_icon.png");
+                CreateTextArea(new Rectangle(150, 150, 30, 30), "Powodzenia!", "C:\\JPWP_projekt\\player_icon.png");
+
+                CreateBlockedArea(new Rectangle(70, 200, 400, 100));
+                CreateBlockedArea(new Rectangle(130, 0, 50, 150));
+
+                CreateBlockedArea(new Rectangle(450, 100, 100, 50));
+                CreateBlockedArea(new Rectangle(450, 0, 50, 150));
                 break;
             default:
+
                 MessageBox.Show("Koniec gry! Gratulacje!", "Koniec");
                 Application.Exit();
                 return;
@@ -115,6 +153,7 @@ public class MagicSchoolGame : Form
         playerPictureBox.Image = Image.FromFile("C:\\JPWP_projekt\\player_icon.png");
         playerPictureBox.Size = new Size(playerSize, playerSize);
         playerPictureBox.Location = playerPosition;
+        playerPictureBox.BackColor = Color.Transparent;
         backgroundPictureBox.Controls.Add(playerPictureBox);
 
         levelChangePanel = new Panel
@@ -130,8 +169,8 @@ public class MagicSchoolGame : Form
 
     private void RemoveQuestionArea(int index)
     {
-        backgroundPictureBox.Controls.Remove(areaPanels[index]);
-        areaPanels.RemoveAt(index);
+        backgroundPictureBox.Controls.Remove(areaGraphix[index]);
+        areaGraphix.RemoveAt(index);
         questionAreas.RemoveAt(index);
 
         // Sprawdzenie, czy wszystkie pytania zostały rozwiązane
@@ -150,10 +189,16 @@ public class MagicSchoolGame : Form
         switch (level)
         {
             case 1:
-                introduction = "Witaj w magicznej szkole! Twoim zadaniem jest rozwiązać zadania matematyczne i zdobyć punkty, unikając przeszkód.";
+                introduction = "Szkoła jest w chaosie! Po korytarzach rozbiegły się gobliny, które sieją zamęt. Profesor Matemagii właśnie nauczył cię zaklęcia dodawania. Twoim zadaniem jest użycie tej nowej magii, aby pokonać gobliny i przywrócić porządek.\r\n\r\nJak to działa?\r\n\r\n    Każdy goblin rzuca w twoją stronę zagadkę matematyczną związaną z dodawaniem.\r\n    Przykład: Goblin krzyczy: \"Ile to jest 7 + 5?\"\r\n    Aby rzucić zaklęcie, musisz podać poprawną odpowiedź. W tym przypadku odpowiedź to 12.\r\n    Jeśli odpowiedź jest poprawna, goblin znika w magicznym pufie!\r\n    Jeśli się pomylisz, goblin cię zaatakuje i stracisz jedno życie.\r\n\r\nRada:\r\nDodawanie to po prostu zliczanie razem dwóch liczb. Możesz sobie wyobrazić, że dodajesz przedmioty w swojej dłoni, aby uzyskać sumę.";
                 break;
             case 2:
-                introduction = "Poziom drugi: Uczniowie są bardziej wymagający, a pytania trudniejsze. Przygotuj się na wyzwania!";
+                introduction = "Szkolne ogrody zostały opanowane przez złośliwe, mięsożerne rośliny. Na szczęście twoja magia odejmowania jest w stanie je powstrzymać! Musisz pomóc ogrodnikom uratować piękne kwiaty przed pożarciem przez te paskudne chwasty.\r\n\r\nJak to działa?\r\n\r\n    Każda roślina próbuje zaatakować, ale zamiast tego rzuca zagadkę związaną z odejmowaniem.\r\n    Przykład: Roślina syczy: \"Ile to jest 15 - 8?\"\r\n    Twoje zaklęcie odejmowania wymaga poprawnej odpowiedzi, czyli 7.\r\n    Jeśli odpowiesz dobrze, roślina więdnie i znika.\r\n    Zła odpowiedź powoduje, że roślina ugryzie cię, tracisz jedno życie!\r\n\r\nRada:\r\nOdejmowanie to proces \"zabierania\" jednej liczby od drugiej. Możesz sobie wyobrazić, że oddajesz rzeczy, które już miałeś, aby obliczyć wynik.";
+                break;
+            case 3:
+                introduction = "Szkolne podziemia zostały nawiedzone przez duchy! Aby je wypędzić, musisz wykorzystać magię mnożenia, której właśnie nauczyłeś się na lekcjach. Duchy boją się liczb i mnożenia, więc użyj tego przeciwko nim.\r\n\r\nJak to działa?\r\n\r\n    Duchy wyskakują z cienia i rzucają zagadki z mnożeniem.\r\n    Przykład: Duch jęczy: \"Ile to jest 6 × 4?\"\r\n    Twoje zaklęcie mnożenia wymaga odpowiedzi 24, aby duch wrócił do swojego wymiaru.\r\n    Jeśli odpowiesz źle, duch zabiera część twojej energii.\r\n\r\nRada:\r\nMnożenie to szybkie dodawanie. Jeśli masz 6 grup po 4, to oznacza, że masz 24 rzeczy razem. Wyobraź sobie grupki przedmiotów, aby łatwiej rozwiązać zagadkę.";
+                break;
+            case 4:
+                introduction = "Największe zagrożenie dla naszego świata to odchłań, która próbuje przedostać się przez mroczne portale. Aby je zamknąć, musisz wykorzystać magię dzielenia. Rozkładanie dużych liczb na mniejsze części pomoże ci zablokować każdy portal i uratować świat.\r\n\r\nJak to działa?\r\n\r\n    Każdy portal próbuje otworzyć się szerzej, zadając ci zagadkę związaną z dzieleniem.\r\n    Przykład: Portal wibruje i szepcze: \"Ile to jest 20 ÷ 5?\"\r\n    Twoje zaklęcie dzielenia wymaga odpowiedzi 4, aby portal został zamknięty na zawsze.\r\n    Zła odpowiedź powoduje, że portal się rozszerza, a ty tracisz jedno życie.\r\n\r\nRada:\r\nDzielenie to odwrotność mnożenia. Zastanów się, na ile równych części możesz podzielić liczbę, aby uzyskać wynik. Możesz myśleć o tym, jak dzielenie kawałków ciasta między osoby.";
                 break;
             default:
                 introduction = "Rozpoczynasz nowy poziom. Powodzenia!";
@@ -167,21 +212,24 @@ public class MagicSchoolGame : Form
 
 
 
-    private void CreateQuestionArea(Rectangle area)
+    private void CreateQuestionArea(Rectangle area, string imagePath)
     {
         questionAreas.Add(area);
 
-        Panel panel = new Panel
+        PictureBox pictureBox = new PictureBox
         {
             Location = new Point(area.X, area.Y),
             Size = new Size(area.Width, area.Height),
-            BorderStyle = BorderStyle.FixedSingle,
-            BackColor = Color.FromArgb(128, 128, 128, 128)
+            Image = Image.FromFile(imagePath), // Wczytaj grafikę
+            SizeMode = PictureBoxSizeMode.StretchImage,
+            BackColor = Color.Transparent // Ustawienie przezroczystości
         };
 
-        areaPanels.Add(panel);
-        backgroundPictureBox.Controls.Add(panel);
+        areaGraphix.Add(pictureBox); // Dodaj do listy paneli
+        backgroundPictureBox.Controls.Add(pictureBox); // Dodaj do tła
+        pictureBox.Parent = backgroundPictureBox; // Ustawienie rodzica dla przezroczystości
     }
+
 
     private void CreateBlockedArea(Rectangle area)
     {
@@ -201,6 +249,9 @@ public class MagicSchoolGame : Form
 
     private void OnKeyDown(object sender, KeyEventArgs e)
     {
+        Console.WriteLine($"Pozostałe pytania: {questionAreas.Count}");
+        Console.WriteLine($"Pozostałe grafiki: {areaGraphix.Count}");
+
         if (isQuestionActive) return;
 
         Point newPosition = playerPosition;
@@ -257,7 +308,7 @@ public class MagicSchoolGame : Form
         }
 
         // Obsługa zmiany poziomu
-        if (levelChangeArea.Contains(playerPosition) || levelChangeArea.Contains(newPosition.X + playerSize - 1, newPosition.Y) || levelChangeArea.Contains(newPosition.X, newPosition.Y + playerSize - 1) || levelChangeArea.Contains(newPosition.X + playerSize - 1, newPosition.Y + playerSize - 1))
+        if (allQuestionsAnswered && (levelChangeArea.Contains(playerPosition) || levelChangeArea.Contains(newPosition.X + playerSize - 1, newPosition.Y) || levelChangeArea.Contains(newPosition.X, newPosition.Y + playerSize - 1) || levelChangeArea.Contains(newPosition.X + playerSize - 1, newPosition.Y + playerSize - 1)))
         {
             currentLevel++;
             SaveLastVisitedLevel(currentLevel);
@@ -340,13 +391,15 @@ public class MagicSchoolGame : Form
             var textArea = textAreas[areaIndex];
             textAreas.RemoveAt(areaIndex);
 
-            var panel = areaPanels.FirstOrDefault(p =>
-                p.Location == new Point(textArea.Area.X, textArea.Area.Y));
-            if (panel != null)
+            var pictureBox = backgroundPictureBox.Controls
+            .OfType<PictureBox>()
+            .FirstOrDefault(p => p.Location == new Point(textArea.Area.X, textArea.Area.Y));
+
+            if (pictureBox != null)
             {
-                backgroundPictureBox.Controls.Remove(panel);
-                areaPanels.Remove(panel);
+                backgroundPictureBox.Controls.Remove(pictureBox);
             }
+
         }
     }
 
@@ -365,7 +418,6 @@ public class MagicSchoolGame : Form
 
     private void RestartGame()
     {
-        currentLevel = 1; // Restart gry od poziomu 1
         lives = 5; // Przywrócenie żyć
         LoadLevel(currentLevel);
     }
