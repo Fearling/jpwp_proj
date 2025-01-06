@@ -1,0 +1,9 @@
+C:\JPWP_projekt\JPWP\JPWP\bin\Debug\JPWP.exe.config
+C:\JPWP_projekt\JPWP\JPWP\bin\Debug\JPWP.exe
+C:\JPWP_projekt\JPWP\JPWP\bin\Debug\JPWP.pdb
+C:\JPWP_projekt\JPWP\JPWP\obj\Debug\JPWP.csproj.AssemblyReference.cache
+C:\JPWP_projekt\JPWP\JPWP\obj\Debug\JPWP.Properties.Resources.resources
+C:\JPWP_projekt\JPWP\JPWP\obj\Debug\JPWP.csproj.GenerateResource.cache
+C:\JPWP_projekt\JPWP\JPWP\obj\Debug\JPWP.csproj.CoreCompileInputs.cache
+C:\JPWP_projekt\JPWP\JPWP\obj\Debug\JPWP.exe
+C:\JPWP_projekt\JPWP\JPWP\obj\Debug\JPWP.pdb
