@@ -94,12 +94,14 @@ public class MagicSchoolGame : Form
         switch (level)
         {
             case 1:
-                backgroundPictureBox.Image = Image.FromFile("C:\\JPWP_projekt\\school_map.png");
-                CreateQuestionArea(new Rectangle(200, 30, 40, 40), "C:\\JPWP_projekt\\goblin.png");
-                CreateQuestionArea(new Rectangle(100, 200, 40, 40), "C:\\JPWP_projekt\\goblin.png");
+                backgroundPictureBox.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "school_map.png"));
+                CreateQuestionArea(new Rectangle(450, 30, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "goblin.png"));
+                CreateQuestionArea(new Rectangle(200, 30, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "goblin.png"));
+                CreateQuestionArea(new Rectangle(100, 200, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "goblin.png"));
+                CreateQuestionArea(new Rectangle(500, 200, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "goblin.png"));
 
-                CreateTextArea(new Rectangle(400, 100, 30, 30), "Witaj w magicznej szkole!", "C:\\JPWP_projekt\\player_icon.png");
-                CreateTextArea(new Rectangle(200, 250, 30, 30), "Uważaj na przeszkody!", "C:\\JPWP_projekt\\player_icon.png");
+                CreateTextArea(new Rectangle(400, 100, 30, 30), "Jeśli dodajesz liczby, które razem mogą stworzyć pełną dziesiątkę, zrób to najpierw! Na przykład: 8 + 7. Z 7 weź 2, żeby zrobić 10 (8 + 2 = 10), a potem dodaj pozostałe 5 (10 + 5 = 15). Gobliny nigdy cię nie złapią, jeśli będziesz działać szybko!", "C:\\JPWP_projekt\\player_icon.png");
+                CreateTextArea(new Rectangle(200, 250, 30, 30), "1 + 9 = 10, 2 + 8 = 10, 3 + 7 = 10, itd.\r\nJeśli znajdziesz takie pary, łatwiej będzie dodawać większe grupy liczb!\"", "C:\\JPWP_projekt\\player_icon.png");
 
                 CreateBlockedArea(new Rectangle(50, 90, 540, 10));
                 CreateBlockedArea(new Rectangle(45, 200, 360, 10));
@@ -108,14 +110,14 @@ public class MagicSchoolGame : Form
                 CreateBlockedArea(new Rectangle(400, 200, 10, 160));
                 break;
             case 2:
-                backgroundPictureBox.Image = Image.FromFile("C:\\JPWP_projekt\\school_map1.png");
-                CreateQuestionArea(new Rectangle(160, 100, 40, 40), "C:\\JPWP_projekt\\roslinka.png");
-                CreateQuestionArea(new Rectangle(80, 60, 40, 40), "C:\\JPWP_projekt\\roslinka.png");
-                CreateQuestionArea(new Rectangle(500, 60, 40, 40), "C:\\JPWP_projekt\\roslinka.png");
-                CreateQuestionArea(new Rectangle(420, 60, 40, 40), "C:\\JPWP_projekt\\roslinka.png");
+                backgroundPictureBox.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "school_map1.png"));
+                CreateQuestionArea(new Rectangle(160, 100, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "roslinka.png"));
+                CreateQuestionArea(new Rectangle(80, 60, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "roslinka.png"));
+                CreateQuestionArea(new Rectangle(500, 60, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "roslinka.png"));
+                CreateQuestionArea(new Rectangle(420, 60, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "roslinka.png"));
 
-                CreateTextArea(new Rectangle(350, 250, 30, 30), "Drugi poziom jest trudniejszy!", "C:\\JPWP_projekt\\player_icon.png");
-                CreateTextArea(new Rectangle(150, 150, 30, 30), "Powodzenia!", "C:\\JPWP_projekt\\player_icon.png");
+                CreateTextArea(new Rectangle(350, 250, 30, 30), "Podziel odejmowanie na części. Na przykład: 14 - 9. Odejmij najpierw, żeby zrobić 10 (14 - 4 = 10), a potem odejmij resztę (10 - 5 = 5). Dzięki temu szybciej pokonasz rośliny!", "C:\\JPWP_projekt\\player_icon.png");
+                CreateTextArea(new Rectangle(150, 150, 30, 30), "Zamiast odejmować, zapytaj siebie: ‘Ile muszę dodać do mniejszej liczby, żeby osiągnąć większą?’ Na przykład: 13 - 7. Dodaj 7 + 3, żeby dojść do 10, a potem jeszcze 3, żeby dojść do 13. Wynik to 6!", "C:\\JPWP_projekt\\player_icon.png");
 
                 CreateBlockedArea(new Rectangle(70, 100, 100, 50));
                 CreateBlockedArea(new Rectangle(130, 0, 50, 150));
@@ -124,20 +126,27 @@ public class MagicSchoolGame : Form
                 CreateBlockedArea(new Rectangle(450, 0, 50, 150));
                 break;
             case 3:
-                backgroundPictureBox.Image = Image.FromFile("C:\\JPWP_projekt\\school_map2.png");
-                CreateQuestionArea(new Rectangle(160, 100, 40, 40), "C:\\JPWP_projekt\\duch.png");
-                CreateQuestionArea(new Rectangle(80, 60, 40, 40), "C:\\JPWP_projekt\\duch.png");
-                CreateQuestionArea(new Rectangle(500, 60, 40, 40), "C:\\JPWP_projekt\\duch.png");
-                CreateQuestionArea(new Rectangle(420, 60, 40, 40), "C:\\JPWP_projekt\\duch.png");
+                backgroundPictureBox.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "school_map2.png"));
+                CreateQuestionArea(new Rectangle(160, 200, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "duch.png"));
+                CreateQuestionArea(new Rectangle(80, 60, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "duch.png"));
+                CreateQuestionArea(new Rectangle(500, 60, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "duch.png"));
+                CreateQuestionArea(new Rectangle(420, 60, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "duch.png"));
 
-                CreateTextArea(new Rectangle(350, 250, 30, 30), "Drugi poziom jest trudniejszy!", "C:\\JPWP_projekt\\player_icon.png");
-                CreateTextArea(new Rectangle(150, 150, 30, 30), "Powodzenia!", "C:\\JPWP_projekt\\player_icon.png");
+                CreateTextArea(new Rectangle(350, 250, 30, 30), "Jeśli liczby są trudne, pomnóż łatwiejsze części i dodaj. Na przykład: 6 × 4. Zrób to jako (6 × 2) + (6 × 2) = 12 + 12 = 24. Egzorcyzm działa szybciej, gdy dzielisz go na etapy!", "C:\\JPWP_projekt\\player_icon.png");
 
-                CreateBlockedArea(new Rectangle(70, 200, 400, 100));
-                CreateBlockedArea(new Rectangle(130, 0, 50, 150));
+                CreateBlockedArea(new Rectangle(120, 80, 400, 140));
 
-                CreateBlockedArea(new Rectangle(450, 100, 100, 50));
-                CreateBlockedArea(new Rectangle(450, 0, 50, 150));
+                break;
+            case 4:
+                backgroundPictureBox.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "school_map3.png"));
+                CreateQuestionArea(new Rectangle(160, 200, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "portale.png"));
+                CreateQuestionArea(new Rectangle(80, 60, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "portale.png"));
+                CreateQuestionArea(new Rectangle(500, 60, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "portale.png"));
+                CreateQuestionArea(new Rectangle(420, 60, 40, 40), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "portale.png"));
+
+                CreateTextArea(new Rectangle(300, 150, 30, 30), "Wyobraź sobie, że masz liczbę do podziału jako grupy rzeczy. Na przykład: 12 ÷ 3. Podziel 12 na 3 równe grupy – każda ma 4. To jak łatanie 3 dziur w rzeczywistości przy użyciu równej liczby run!", "C:\\JPWP_projekt\\player_icon.png");
+
+
                 break;
             default:
 
@@ -150,7 +159,7 @@ public class MagicSchoolGame : Form
         this.Controls.Add(backgroundPictureBox);
 
         playerPictureBox = new PictureBox();
-        playerPictureBox.Image = Image.FromFile("C:\\JPWP_projekt\\player_icon.png");
+        playerPictureBox.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "player_icon.png"));
         playerPictureBox.Size = new Size(playerSize, playerSize);
         playerPictureBox.Location = playerPosition;
         playerPictureBox.BackColor = Color.Transparent;
@@ -192,7 +201,7 @@ public class MagicSchoolGame : Form
                 introduction = "Szkoła jest w chaosie! Po korytarzach rozbiegły się gobliny, które sieją zamęt. Profesor Matemagii właśnie nauczył cię zaklęcia dodawania. Twoim zadaniem jest użycie tej nowej magii, aby pokonać gobliny i przywrócić porządek.\r\n\r\nJak to działa?\r\n\r\n    Każdy goblin rzuca w twoją stronę zagadkę matematyczną związaną z dodawaniem.\r\n    Przykład: Goblin krzyczy: \"Ile to jest 7 + 5?\"\r\n    Aby rzucić zaklęcie, musisz podać poprawną odpowiedź. W tym przypadku odpowiedź to 12.\r\n    Jeśli odpowiedź jest poprawna, goblin znika w magicznym pufie!\r\n    Jeśli się pomylisz, goblin cię zaatakuje i stracisz jedno życie.\r\n\r\nRada:\r\nDodawanie to po prostu zliczanie razem dwóch liczb. Możesz sobie wyobrazić, że dodajesz przedmioty w swojej dłoni, aby uzyskać sumę.";
                 break;
             case 2:
-                introduction = "Szkolne ogrody zostały opanowane przez złośliwe, mięsożerne rośliny. Na szczęście twoja magia odejmowania jest w stanie je powstrzymać! Musisz pomóc ogrodnikom uratować piękne kwiaty przed pożarciem przez te paskudne chwasty.\r\n\r\nJak to działa?\r\n\r\n    Każda roślina próbuje zaatakować, ale zamiast tego rzuca zagadkę związaną z odejmowaniem.\r\n    Przykład: Roślina syczy: \"Ile to jest 15 - 8?\"\r\n    Twoje zaklęcie odejmowania wymaga poprawnej odpowiedzi, czyli 7.\r\n    Jeśli odpowiesz dobrze, roślina więdnie i znika.\r\n    Zła odpowiedź powoduje, że roślina ugryzie cię, tracisz jedno życie!\r\n\r\nRada:\r\nOdejmowanie to proces \"zabierania\" jednej liczby od drugiej. Możesz sobie wyobrazić, że oddajesz rzeczy, które już miałeś, aby obliczyć wynik.";
+                introduction = "Szkolne ogrody zostały opanowane przez złośliwe, mięsożerne rośliny. Na szczęście twoja magia odejmowania jest w stanie je powstrzymać! Musisz pomóc ogrodnikom.\r\n\r\nJak to działa?\r\n\r\n    Każda roślina próbuje zaatakować, ale zamiast tego rzuca zagadkę związaną z odejmowaniem.\r\n    Przykład: Roślina syczy: \"Ile to jest 15 - 8?\"\r\n    Twoje zaklęcie odejmowania wymaga poprawnej odpowiedzi, czyli 7.\r\n    Jeśli odpowiesz dobrze, roślina więdnie i znika.\r\n    Zła odpowiedź powoduje, że roślina ugryzie cię, tracisz jedno życie!\r\n\r\nRada:\r\nOdejmowanie to proces \"zabierania\" jednej liczby od drugiej. Możesz sobie wyobrazić, że oddajesz rzeczy, które już miałeś, aby obliczyć wynik.";
                 break;
             case 3:
                 introduction = "Szkolne podziemia zostały nawiedzone przez duchy! Aby je wypędzić, musisz wykorzystać magię mnożenia, której właśnie nauczyłeś się na lekcjach. Duchy boją się liczb i mnożenia, więc użyj tego przeciwko nim.\r\n\r\nJak to działa?\r\n\r\n    Duchy wyskakują z cienia i rzucają zagadki z mnożeniem.\r\n    Przykład: Duch jęczy: \"Ile to jest 6 × 4?\"\r\n    Twoje zaklęcie mnożenia wymaga odpowiedzi 24, aby duch wrócił do swojego wymiaru.\r\n    Jeśli odpowiesz źle, duch zabiera część twojej energii.\r\n\r\nRada:\r\nMnożenie to szybkie dodawanie. Jeśli masz 6 grup po 4, to oznacza, że masz 24 rzeczy razem. Wyobraź sobie grupki przedmiotów, aby łatwiej rozwiązać zagadkę.";
@@ -239,8 +248,7 @@ public class MagicSchoolGame : Form
         {
             Location = new Point(area.X, area.Y),
             Size = new Size(area.Width, area.Height),
-            BorderStyle = BorderStyle.FixedSingle,
-            BackColor = Color.Red
+            BackColor = Color.Transparent
         };
 
         areaPanels.Add(panel);
