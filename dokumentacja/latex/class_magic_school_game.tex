@@ -1,0 +1,526 @@
+\doxysection{Magic\+School\+Game Class Reference}
+\hypertarget{class_magic_school_game}{}\label{class_magic_school_game}\index{MagicSchoolGame@{MagicSchoolGame}}
+
+
+Główna klasa.  
+
+
+Inheritance diagram for Magic\+School\+Game\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_magic_school_game}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_magic_school_game_a0cf00795bcba56d722eede60d637bdea}{Magic\+School\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Konstruktor gry \doxylink{class_magic_school_game}{Magic\+School\+Game}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_magic_school_game_ae4bd1add841589a484ebb39314419dbd}{Main}} ()
+\begin{DoxyCompactList}\small\item\em Wywoluje program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_magic_school_game_afdbd6712fc4b4775edf2f9b54607743e}{Create\+Text\+Area}} (Rectangle area, string text, string image\+Path)
+\begin{DoxyCompactList}\small\item\em Tworzy obszar tekstowy z przypisanym obrazem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_magic_school_game_a8cd83e1ced6cfb14567872c63433dd0f}{Load\+Level}} (int level)
+\begin{DoxyCompactList}\small\item\em /// Wczytuje poziom gry i ustawia odpowiednie elementy. /// \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_magic_school_game_a02cc3eff1f7a318a23c20fd8089521b2}{Remove\+Question\+Area}} (int index)
+\begin{DoxyCompactList}\small\item\em Usuwa obszar pytania i odkrywa obszar przejscia na nstepny poziom. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_magic_school_game_af0fe5dab8279f1e30e292f169dc4cdcc}{Show\+Level\+Introduction}} (int level)
+\begin{DoxyCompactList}\small\item\em Wyswietla tutorial do danego poziomu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_magic_school_game_afb08dd14d5d764850846a27eb5597569}{Create\+Question\+Area}} (Rectangle area, string image\+Path)
+\begin{DoxyCompactList}\small\item\em tworzy pole z zadaniem \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_magic_school_game_a9f34e0105bf75a682bbe0428b34dc920}{Create\+Blocked\+Area}} (Rectangle area)
+\begin{DoxyCompactList}\small\item\em tworzy obszar przez ktory nie da sie przejsc \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_magic_school_game_a8710303fd905a7f4f9c58e71767b4049}{On\+Key\+Down}} (object sender, Key\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsluga sterowania i wyrywanie interakcji z polami. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_magic_school_game_a8c0a89284d369d0addfed4ccb4d68a36}{Generate\+And\+Ask\+Question}} (int area\+Index)
+\begin{DoxyCompactList}\small\item\em Generuje i obsluguje zadania. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_magic_school_game_af757ee94bf39f598e740f391fd0ca827}{Hide\+Text\+Area}} (int area\+Index)
+\begin{DoxyCompactList}\small\item\em Usuwa pola wyswietlajace tekst. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_magic_school_game_afaafe1dd2577a29c805f3b2b36cfb601}{Create\+Main\+Menu\+Dropdown}} ()
+\begin{DoxyCompactList}\small\item\em Tworzy Dropdown menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_magic_school_game_a8d3fafaabd9cb04dab152ff265f520a0}{Restart\+Game}} ()
+\begin{DoxyCompactList}\small\item\em restartuje gre \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_magic_school_game_a55ea0bc5892cb5609d2c1d8afef427e0}{Reset\+Level}} ()
+\begin{DoxyCompactList}\small\item\em restartuje gre \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_magic_school_game_afbbbf6a4e53b665f5f40c9194b62c63c}{Show\+Input\+Dialog}} (string question)
+\begin{DoxyCompactList}\small\item\em Wyswietla okna z tekstem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_magic_school_game_aa8eaeed0694a8fddc7cc715abaa8b8ad}{Show\+Main\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em generuje menu glowne \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_magic_school_game_ab59841ead2a3a565b46270f5aa5d93d1}{Save\+Last\+Visited\+Level}} (int level)
+\begin{DoxyCompactList}\small\item\em zapisuje ostatni odwiedony poziom \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_magic_school_game_a4b682c6c7374a24acce5654fb54fa1d5}{Load\+Last\+Visited\+Level}} ()
+\begin{DoxyCompactList}\small\item\em wczytuje ostatni odwiedzony poziom \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Picture\+Box \mbox{\hyperlink{class_magic_school_game_afc3a85b0e4f156325e95fe26644d6887}{player\+Picture\+Box}}
+\begin{DoxyCompactList}\small\item\em Obiekt reprezentujący gracza w grze. \end{DoxyCompactList}\item 
+Picture\+Box \mbox{\hyperlink{class_magic_school_game_a75d085c7d319c22296debda1ace2d715}{background\+Picture\+Box}}
+\begin{DoxyCompactList}\small\item\em Obiekt reprezentujący tło gry. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_magic_school_game_a1b551e356a8b3b5dd1d65127c4d9d7df}{player\+Size}} = 20
+\begin{DoxyCompactList}\small\item\em Rozmiar gracza (wysokość i szerokość). \end{DoxyCompactList}\item 
+Point \mbox{\hyperlink{class_magic_school_game_ae4de670e4a48ac630104bfdfc7cac958}{player\+Position}} = new Point(50, 50)
+\begin{DoxyCompactList}\small\item\em Aktualna pozycja gracza. \end{DoxyCompactList}\item 
+Random \mbox{\hyperlink{class_magic_school_game_ae4a002b0dfae48d01565477c658032b1}{random}} = new Random()
+\begin{DoxyCompactList}\small\item\em Generator liczb losowych. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_magic_school_game_a3db068c122ce3872911536a9b150a556}{score}} = 0
+\begin{DoxyCompactList}\small\item\em Wynik gracza. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_magic_school_game_aa69ce984f6178541ff0a7c9f96188750}{is\+Question\+Active}} = false
+\begin{DoxyCompactList}\small\item\em Flaga określająca, czy pytanie jest aktywne. \end{DoxyCompactList}\item 
+Rectangle \mbox{\hyperlink{class_magic_school_game_af1aa44467e2f430f7159a88f62655641}{level\+Change\+Area}} = new Rectangle(500, 250, 50, 50)
+\begin{DoxyCompactList}\small\item\em Obszar zmiany poziomu. \end{DoxyCompactList}\item 
+List$<$ Rectangle $>$ \mbox{\hyperlink{class_magic_school_game_a3296510c7f4df3b74f07b03c2b374228}{question\+Areas}} = new List$<$Rectangle$>$()
+\begin{DoxyCompactList}\small\item\em Lista obszarów wywołujących pytania. \end{DoxyCompactList}\item 
+List$<$ Rectangle $>$ \mbox{\hyperlink{class_magic_school_game_a5879ea76206e7b3d211304173c24d532}{blocked\+Areas}} = new List$<$Rectangle$>$()
+\begin{DoxyCompactList}\small\item\em Lista obszarów blokujących ruch gracza. \end{DoxyCompactList}\item 
+List$<$ Panel $>$ \mbox{\hyperlink{class_magic_school_game_a673059197473001feda5cce0707eef5b}{area\+Panels}} = new List$<$Panel$>$()
+\begin{DoxyCompactList}\small\item\em Lista paneli graficznych dla obszarów. \end{DoxyCompactList}\item 
+List$<$ Control $>$ \mbox{\hyperlink{class_magic_school_game_aff6d18f395793564e4fc78ba6f72084b}{area\+Graphix}} = new List$<$Control$>$()
+\begin{DoxyCompactList}\small\item\em Lista kontrolek graficznych dodanych do tła. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_magic_school_game_aa0dee39a662c805ea22cc51543cc4eb0}{current\+Level}} = 1
+\begin{DoxyCompactList}\small\item\em Aktualny poziom gry. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_magic_school_game_acedda75f1c42b2916bf760475692e308}{lives}} = 5
+\begin{DoxyCompactList}\small\item\em Liczba żyć gracza. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_magic_school_game_a169c844c45107320781d73746bf75c6d}{all\+Questions\+Answered}} = false
+\begin{DoxyCompactList}\small\item\em Flaga określająca, czy wszystkie pytania zostały rozwiązane. \end{DoxyCompactList}\item 
+Panel \mbox{\hyperlink{class_magic_school_game_ae44361ac551996e07797484566c5b8d2}{level\+Change\+Panel}}
+\begin{DoxyCompactList}\small\item\em Panel zmiany poziomu. \end{DoxyCompactList}\item 
+List$<$(Rectangle Area, string Text)$>$ \mbox{\hyperlink{class_magic_school_game_ad57d183932008c43689ab4f767b5cecb}{text\+Areas}} = new List$<$(Rectangle, string)$>$()
+\begin{DoxyCompactList}\small\item\em Lista obszarów z tekstami i ich zawartościami. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Główna klasa. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_magic_school_game_a0cf00795bcba56d722eede60d637bdea}\index{MagicSchoolGame@{MagicSchoolGame}!MagicSchoolGame@{MagicSchoolGame}}
+\index{MagicSchoolGame@{MagicSchoolGame}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{MagicSchoolGame()}{MagicSchoolGame()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a0cf00795bcba56d722eede60d637bdea} 
+Magic\+School\+Game.\+Magic\+School\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Konstruktor gry \doxylink{class_magic_school_game}{Magic\+School\+Game}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_magic_school_game_a9f34e0105bf75a682bbe0428b34dc920}\index{MagicSchoolGame@{MagicSchoolGame}!CreateBlockedArea@{CreateBlockedArea}}
+\index{CreateBlockedArea@{CreateBlockedArea}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{CreateBlockedArea()}{CreateBlockedArea()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a9f34e0105bf75a682bbe0428b34dc920} 
+void Magic\+School\+Game.\+Create\+Blocked\+Area (\begin{DoxyParamCaption}\item[{Rectangle}]{area}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+tworzy obszar przez ktory nie da sie przejsc 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area} & wymiary obszaru\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_magic_school_game_afaafe1dd2577a29c805f3b2b36cfb601}\index{MagicSchoolGame@{MagicSchoolGame}!CreateMainMenuDropdown@{CreateMainMenuDropdown}}
+\index{CreateMainMenuDropdown@{CreateMainMenuDropdown}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{CreateMainMenuDropdown()}{CreateMainMenuDropdown()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_afaafe1dd2577a29c805f3b2b36cfb601} 
+void Magic\+School\+Game.\+Create\+Main\+Menu\+Dropdown (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tworzy Dropdown menu. 
+
+\Hypertarget{class_magic_school_game_afb08dd14d5d764850846a27eb5597569}\index{MagicSchoolGame@{MagicSchoolGame}!CreateQuestionArea@{CreateQuestionArea}}
+\index{CreateQuestionArea@{CreateQuestionArea}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{CreateQuestionArea()}{CreateQuestionArea()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_afb08dd14d5d764850846a27eb5597569} 
+void Magic\+School\+Game.\+Create\+Question\+Area (\begin{DoxyParamCaption}\item[{Rectangle}]{area}{, }\item[{string}]{image\+Path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+tworzy pole z zadaniem 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area} & rozmiar pola\\
+\hline
+{\em image\+Path} & scierzka do obrazu wykorzystanego w polu zadania\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_magic_school_game_afdbd6712fc4b4775edf2f9b54607743e}\index{MagicSchoolGame@{MagicSchoolGame}!CreateTextArea@{CreateTextArea}}
+\index{CreateTextArea@{CreateTextArea}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{CreateTextArea()}{CreateTextArea()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_afdbd6712fc4b4775edf2f9b54607743e} 
+void Magic\+School\+Game.\+Create\+Text\+Area (\begin{DoxyParamCaption}\item[{Rectangle}]{area}{, }\item[{string}]{text}{, }\item[{string}]{image\+Path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tworzy obszar tekstowy z przypisanym obrazem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area} & Obszar, w którym pojawi się tekst.\\
+\hline
+{\em text} & Treść tekstu.\\
+\hline
+{\em image\+Path} & Ścieżka do pliku obrazu.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_magic_school_game_a8c0a89284d369d0addfed4ccb4d68a36}\index{MagicSchoolGame@{MagicSchoolGame}!GenerateAndAskQuestion@{GenerateAndAskQuestion}}
+\index{GenerateAndAskQuestion@{GenerateAndAskQuestion}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{GenerateAndAskQuestion()}{GenerateAndAskQuestion()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a8c0a89284d369d0addfed4ccb4d68a36} 
+void Magic\+School\+Game.\+Generate\+And\+Ask\+Question (\begin{DoxyParamCaption}\item[{int}]{area\+Index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Generuje i obsluguje zadania. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area\+Index} & Numer pola z zadaniem\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_magic_school_game_af757ee94bf39f598e740f391fd0ca827}\index{MagicSchoolGame@{MagicSchoolGame}!HideTextArea@{HideTextArea}}
+\index{HideTextArea@{HideTextArea}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{HideTextArea()}{HideTextArea()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_af757ee94bf39f598e740f391fd0ca827} 
+void Magic\+School\+Game.\+Hide\+Text\+Area (\begin{DoxyParamCaption}\item[{int}]{area\+Index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Usuwa pola wyswietlajace tekst. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area\+Index} & Numer pola z tekstem\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_magic_school_game_a4b682c6c7374a24acce5654fb54fa1d5}\index{MagicSchoolGame@{MagicSchoolGame}!LoadLastVisitedLevel@{LoadLastVisitedLevel}}
+\index{LoadLastVisitedLevel@{LoadLastVisitedLevel}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{LoadLastVisitedLevel()}{LoadLastVisitedLevel()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a4b682c6c7374a24acce5654fb54fa1d5} 
+int Magic\+School\+Game.\+Load\+Last\+Visited\+Level (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+wczytuje ostatni odwiedzony poziom 
+
+\begin{DoxyReturn}{Returns}
+na wszelki wypadek gdyby cos nie zadzialalo zostanie uruchomiony 1 poziom
+\end{DoxyReturn}
+\Hypertarget{class_magic_school_game_a8cd83e1ced6cfb14567872c63433dd0f}\index{MagicSchoolGame@{MagicSchoolGame}!LoadLevel@{LoadLevel}}
+\index{LoadLevel@{LoadLevel}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{LoadLevel()}{LoadLevel()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a8cd83e1ced6cfb14567872c63433dd0f} 
+void Magic\+School\+Game.\+Load\+Level (\begin{DoxyParamCaption}\item[{int}]{level}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+/// Wczytuje poziom gry i ustawia odpowiednie elementy. /// 
+
+\Hypertarget{class_magic_school_game_ae4bd1add841589a484ebb39314419dbd}\index{MagicSchoolGame@{MagicSchoolGame}!Main@{Main}}
+\index{Main@{Main}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{Main()}{Main()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_ae4bd1add841589a484ebb39314419dbd} 
+static void Magic\+School\+Game.\+Main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Wywoluje program. 
+
+\Hypertarget{class_magic_school_game_a8710303fd905a7f4f9c58e71767b4049}\index{MagicSchoolGame@{MagicSchoolGame}!OnKeyDown@{OnKeyDown}}
+\index{OnKeyDown@{OnKeyDown}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{OnKeyDown()}{OnKeyDown()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a8710303fd905a7f4f9c58e71767b4049} 
+void Magic\+School\+Game.\+On\+Key\+Down (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Key\+Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Obsluga sterowania i wyrywanie interakcji z polami. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & Wcisniety przycisk\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_magic_school_game_a02cc3eff1f7a318a23c20fd8089521b2}\index{MagicSchoolGame@{MagicSchoolGame}!RemoveQuestionArea@{RemoveQuestionArea}}
+\index{RemoveQuestionArea@{RemoveQuestionArea}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{RemoveQuestionArea()}{RemoveQuestionArea()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a02cc3eff1f7a318a23c20fd8089521b2} 
+void Magic\+School\+Game.\+Remove\+Question\+Area (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Usuwa obszar pytania i odkrywa obszar przejscia na nstepny poziom. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Numer obszaru ktory ma zostac usuniety\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_magic_school_game_a55ea0bc5892cb5609d2c1d8afef427e0}\index{MagicSchoolGame@{MagicSchoolGame}!ResetLevel@{ResetLevel}}
+\index{ResetLevel@{ResetLevel}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{ResetLevel()}{ResetLevel()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a55ea0bc5892cb5609d2c1d8afef427e0} 
+void Magic\+School\+Game.\+Reset\+Level (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+restartuje gre 
+
+\Hypertarget{class_magic_school_game_a8d3fafaabd9cb04dab152ff265f520a0}\index{MagicSchoolGame@{MagicSchoolGame}!RestartGame@{RestartGame}}
+\index{RestartGame@{RestartGame}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{RestartGame()}{RestartGame()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a8d3fafaabd9cb04dab152ff265f520a0} 
+void Magic\+School\+Game.\+Restart\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+restartuje gre 
+
+\Hypertarget{class_magic_school_game_ab59841ead2a3a565b46270f5aa5d93d1}\index{MagicSchoolGame@{MagicSchoolGame}!SaveLastVisitedLevel@{SaveLastVisitedLevel}}
+\index{SaveLastVisitedLevel@{SaveLastVisitedLevel}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{SaveLastVisitedLevel()}{SaveLastVisitedLevel()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_ab59841ead2a3a565b46270f5aa5d93d1} 
+void Magic\+School\+Game.\+Save\+Last\+Visited\+Level (\begin{DoxyParamCaption}\item[{int}]{level}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+zapisuje ostatni odwiedony poziom 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & numer ostatni odwiedzonego poziomu\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_magic_school_game_afbbbf6a4e53b665f5f40c9194b62c63c}\index{MagicSchoolGame@{MagicSchoolGame}!ShowInputDialog@{ShowInputDialog}}
+\index{ShowInputDialog@{ShowInputDialog}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{ShowInputDialog()}{ShowInputDialog()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_afbbbf6a4e53b665f5f40c9194b62c63c} 
+string Magic\+School\+Game.\+Show\+Input\+Dialog (\begin{DoxyParamCaption}\item[{string}]{question}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Wyswietla okna z tekstem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em question} & tekst od wyswietlenia\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_magic_school_game_af0fe5dab8279f1e30e292f169dc4cdcc}\index{MagicSchoolGame@{MagicSchoolGame}!ShowLevelIntroduction@{ShowLevelIntroduction}}
+\index{ShowLevelIntroduction@{ShowLevelIntroduction}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{ShowLevelIntroduction()}{ShowLevelIntroduction()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_af0fe5dab8279f1e30e292f169dc4cdcc} 
+void Magic\+School\+Game.\+Show\+Level\+Introduction (\begin{DoxyParamCaption}\item[{int}]{level}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Wyswietla tutorial do danego poziomu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & opisuje na ktory poziom gracz sie dostal\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_magic_school_game_aa8eaeed0694a8fddc7cc715abaa8b8ad}\index{MagicSchoolGame@{MagicSchoolGame}!ShowMainMenu@{ShowMainMenu}}
+\index{ShowMainMenu@{ShowMainMenu}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{ShowMainMenu()}{ShowMainMenu()}}
+{\footnotesize\ttfamily \label{class_magic_school_game_aa8eaeed0694a8fddc7cc715abaa8b8ad} 
+void Magic\+School\+Game.\+Show\+Main\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+generuje menu glowne 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_magic_school_game_a169c844c45107320781d73746bf75c6d}\index{MagicSchoolGame@{MagicSchoolGame}!allQuestionsAnswered@{allQuestionsAnswered}}
+\index{allQuestionsAnswered@{allQuestionsAnswered}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{allQuestionsAnswered}{allQuestionsAnswered}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a169c844c45107320781d73746bf75c6d} 
+bool Magic\+School\+Game.\+all\+Questions\+Answered = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flaga określająca, czy wszystkie pytania zostały rozwiązane. 
+
+\Hypertarget{class_magic_school_game_aff6d18f395793564e4fc78ba6f72084b}\index{MagicSchoolGame@{MagicSchoolGame}!areaGraphix@{areaGraphix}}
+\index{areaGraphix@{areaGraphix}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{areaGraphix}{areaGraphix}}
+{\footnotesize\ttfamily \label{class_magic_school_game_aff6d18f395793564e4fc78ba6f72084b} 
+List$<$Control$>$ Magic\+School\+Game.\+area\+Graphix = new List$<$Control$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lista kontrolek graficznych dodanych do tła. 
+
+\Hypertarget{class_magic_school_game_a673059197473001feda5cce0707eef5b}\index{MagicSchoolGame@{MagicSchoolGame}!areaPanels@{areaPanels}}
+\index{areaPanels@{areaPanels}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{areaPanels}{areaPanels}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a673059197473001feda5cce0707eef5b} 
+List$<$Panel$>$ Magic\+School\+Game.\+area\+Panels = new List$<$Panel$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lista paneli graficznych dla obszarów. 
+
+\Hypertarget{class_magic_school_game_a75d085c7d319c22296debda1ace2d715}\index{MagicSchoolGame@{MagicSchoolGame}!backgroundPictureBox@{backgroundPictureBox}}
+\index{backgroundPictureBox@{backgroundPictureBox}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{backgroundPictureBox}{backgroundPictureBox}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a75d085c7d319c22296debda1ace2d715} 
+Picture\+Box Magic\+School\+Game.\+background\+Picture\+Box\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Obiekt reprezentujący tło gry. 
+
+\Hypertarget{class_magic_school_game_a5879ea76206e7b3d211304173c24d532}\index{MagicSchoolGame@{MagicSchoolGame}!blockedAreas@{blockedAreas}}
+\index{blockedAreas@{blockedAreas}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{blockedAreas}{blockedAreas}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a5879ea76206e7b3d211304173c24d532} 
+List$<$Rectangle$>$ Magic\+School\+Game.\+blocked\+Areas = new List$<$Rectangle$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lista obszarów blokujących ruch gracza. 
+
+\Hypertarget{class_magic_school_game_aa0dee39a662c805ea22cc51543cc4eb0}\index{MagicSchoolGame@{MagicSchoolGame}!currentLevel@{currentLevel}}
+\index{currentLevel@{currentLevel}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{currentLevel}{currentLevel}}
+{\footnotesize\ttfamily \label{class_magic_school_game_aa0dee39a662c805ea22cc51543cc4eb0} 
+int Magic\+School\+Game.\+current\+Level = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Aktualny poziom gry. 
+
+\Hypertarget{class_magic_school_game_aa69ce984f6178541ff0a7c9f96188750}\index{MagicSchoolGame@{MagicSchoolGame}!isQuestionActive@{isQuestionActive}}
+\index{isQuestionActive@{isQuestionActive}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{isQuestionActive}{isQuestionActive}}
+{\footnotesize\ttfamily \label{class_magic_school_game_aa69ce984f6178541ff0a7c9f96188750} 
+bool Magic\+School\+Game.\+is\+Question\+Active = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flaga określająca, czy pytanie jest aktywne. 
+
+\Hypertarget{class_magic_school_game_af1aa44467e2f430f7159a88f62655641}\index{MagicSchoolGame@{MagicSchoolGame}!levelChangeArea@{levelChangeArea}}
+\index{levelChangeArea@{levelChangeArea}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{levelChangeArea}{levelChangeArea}}
+{\footnotesize\ttfamily \label{class_magic_school_game_af1aa44467e2f430f7159a88f62655641} 
+Rectangle Magic\+School\+Game.\+level\+Change\+Area = new Rectangle(500, 250, 50, 50)\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Obszar zmiany poziomu. 
+
+\Hypertarget{class_magic_school_game_ae44361ac551996e07797484566c5b8d2}\index{MagicSchoolGame@{MagicSchoolGame}!levelChangePanel@{levelChangePanel}}
+\index{levelChangePanel@{levelChangePanel}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{levelChangePanel}{levelChangePanel}}
+{\footnotesize\ttfamily \label{class_magic_school_game_ae44361ac551996e07797484566c5b8d2} 
+Panel Magic\+School\+Game.\+level\+Change\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Panel zmiany poziomu. 
+
+\Hypertarget{class_magic_school_game_acedda75f1c42b2916bf760475692e308}\index{MagicSchoolGame@{MagicSchoolGame}!lives@{lives}}
+\index{lives@{lives}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{lives}{lives}}
+{\footnotesize\ttfamily \label{class_magic_school_game_acedda75f1c42b2916bf760475692e308} 
+int Magic\+School\+Game.\+lives = 5\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Liczba żyć gracza. 
+
+\Hypertarget{class_magic_school_game_afc3a85b0e4f156325e95fe26644d6887}\index{MagicSchoolGame@{MagicSchoolGame}!playerPictureBox@{playerPictureBox}}
+\index{playerPictureBox@{playerPictureBox}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{playerPictureBox}{playerPictureBox}}
+{\footnotesize\ttfamily \label{class_magic_school_game_afc3a85b0e4f156325e95fe26644d6887} 
+Picture\+Box Magic\+School\+Game.\+player\+Picture\+Box\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Obiekt reprezentujący gracza w grze. 
+
+\Hypertarget{class_magic_school_game_ae4de670e4a48ac630104bfdfc7cac958}\index{MagicSchoolGame@{MagicSchoolGame}!playerPosition@{playerPosition}}
+\index{playerPosition@{playerPosition}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{playerPosition}{playerPosition}}
+{\footnotesize\ttfamily \label{class_magic_school_game_ae4de670e4a48ac630104bfdfc7cac958} 
+Point Magic\+School\+Game.\+player\+Position = new Point(50, 50)\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Aktualna pozycja gracza. 
+
+\Hypertarget{class_magic_school_game_a1b551e356a8b3b5dd1d65127c4d9d7df}\index{MagicSchoolGame@{MagicSchoolGame}!playerSize@{playerSize}}
+\index{playerSize@{playerSize}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{playerSize}{playerSize}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a1b551e356a8b3b5dd1d65127c4d9d7df} 
+int Magic\+School\+Game.\+player\+Size = 20\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Rozmiar gracza (wysokość i szerokość). 
+
+\Hypertarget{class_magic_school_game_a3296510c7f4df3b74f07b03c2b374228}\index{MagicSchoolGame@{MagicSchoolGame}!questionAreas@{questionAreas}}
+\index{questionAreas@{questionAreas}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{questionAreas}{questionAreas}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a3296510c7f4df3b74f07b03c2b374228} 
+List$<$Rectangle$>$ Magic\+School\+Game.\+question\+Areas = new List$<$Rectangle$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lista obszarów wywołujących pytania. 
+
+\Hypertarget{class_magic_school_game_ae4a002b0dfae48d01565477c658032b1}\index{MagicSchoolGame@{MagicSchoolGame}!random@{random}}
+\index{random@{random}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{random}{random}}
+{\footnotesize\ttfamily \label{class_magic_school_game_ae4a002b0dfae48d01565477c658032b1} 
+Random Magic\+School\+Game.\+random = new Random()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Generator liczb losowych. 
+
+\Hypertarget{class_magic_school_game_a3db068c122ce3872911536a9b150a556}\index{MagicSchoolGame@{MagicSchoolGame}!score@{score}}
+\index{score@{score}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{score}{score}}
+{\footnotesize\ttfamily \label{class_magic_school_game_a3db068c122ce3872911536a9b150a556} 
+int Magic\+School\+Game.\+score = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Wynik gracza. 
+
+\Hypertarget{class_magic_school_game_ad57d183932008c43689ab4f767b5cecb}\index{MagicSchoolGame@{MagicSchoolGame}!textAreas@{textAreas}}
+\index{textAreas@{textAreas}!MagicSchoolGame@{MagicSchoolGame}}
+\doxysubsubsection{\texorpdfstring{textAreas}{textAreas}}
+{\footnotesize\ttfamily \label{class_magic_school_game_ad57d183932008c43689ab4f767b5cecb} 
+List$<$(Rectangle Area, string Text)$>$ Magic\+School\+Game.\+text\+Areas = new List$<$(Rectangle, string)$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lista obszarów z tekstami i ich zawartościami. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+JPWP\+\_\+projekt/\+JPWP/\+JPWP/\mbox{\hyperlink{_program_8cs}{Program.\+cs}}\end{DoxyCompactItemize}

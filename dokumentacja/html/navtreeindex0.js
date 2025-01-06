@@ -1,0 +1,25 @@
+var NAVTREEINDEX0 =
+{
+"_form1_8_designer_8cs.html":[2,0,0,1],
+"_form1_8cs.html":[2,0,0,0],
+"_program_8cs.html":[2,0,0,2],
+"annotated.html":[1,0],
+"class_j_p_w_p_1_1_form1.html":[0,0,0,0],
+"class_j_p_w_p_1_1_form1.html":[1,0,0,0],
+"class_j_p_w_p_1_1_form1.html#ac37e59dfd8edd0a23a0523ca7d3550d3":[0,0,0,0,0],
+"class_j_p_w_p_1_1_form1.html#ac37e59dfd8edd0a23a0523ca7d3550d3":[1,0,0,0,0],
+"class_j_p_w_p_1_1_form1.html#afa7399121ca81d235b2027f584c38755":[0,0,0,0,1],
+"class_j_p_w_p_1_1_form1.html#afa7399121ca81d235b2027f584c38755":[1,0,0,0,1],
+"class_magic_school_game.html":[1,0,1],
+"class_magic_school_game.html#a0cf00795bcba56d722eede60d637bdea":[1,0,1,0],
+"classes.html":[1,1],
+"dir_f77ecdcd2f3180e69474163d9bf1f171.html":[2,0,0],
+"files.html":[2,0],
+"functions.html":[1,3,0],
+"functions_func.html":[1,3,1],
+"hierarchy.html":[1,2],
+"index.html":[],
+"namespace_j_p_w_p.html":[0,0,0],
+"namespaces.html":[0,0],
+"pages.html":[]
+};

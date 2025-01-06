@@ -5,34 +5,102 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
+/// <summary>
+/// Główna klasa
+/// </summary>
 public class MagicSchoolGame : Form
 {
+    /// <summary>
+    /// Obiekt reprezentujący gracza w grze.
+    /// </summary>
     private PictureBox playerPictureBox;
+
+    /// <summary>
+    /// Obiekt reprezentujący tło gry.
+    /// </summary>
     private PictureBox backgroundPictureBox;
 
+    /// <summary>
+    /// Rozmiar gracza (wysokość i szerokość).
+    /// </summary>
     private int playerSize = 20;
-    private Point playerPosition = new Point(50, 50); // Startowa pozycja gracza
-    private Random random = new Random(); // Generator liczb losowych
-    private int score = 0; // Wynik gracza
 
-    private bool isQuestionActive = false; // Czy pytanie jest aktywne
-    private Rectangle levelChangeArea = new Rectangle(500, 250, 50, 50); // Obszar zmiany poziomu
+    /// <summary>
+    /// Aktualna pozycja gracza.
+    /// </summary>
+    private Point playerPosition = new Point(50, 50);
 
-    private List<Rectangle> questionAreas = new List<Rectangle>(); // Lista obszarów wywołujących pytania
-    private List<Rectangle> blockedAreas = new List<Rectangle>(); // Lista obszarów blokujących ruch
-    private List<Panel> areaPanels = new List<Panel>(); // Lista paneli graficznych dla obszarów
-    List<Control> areaGraphix = new List<Control>();
+    /// <summary>
+    /// Generator liczb losowych.
+    /// </summary>
+    private Random random = new Random();
 
+    /// <summary>
+    /// Wynik gracza.
+    /// </summary>
+    private int score = 0;
 
-    private int currentLevel = 1; // Obecny poziom
+    /// <summary>
+    /// Flaga określająca, czy pytanie jest aktywne.
+    /// </summary>
+    private bool isQuestionActive = false;
 
-    private int lives = 5; // Liczba żyć gracza
+    /// <summary>
+    /// Obszar zmiany poziomu.
+    /// </summary>
+    private Rectangle levelChangeArea = new Rectangle(500, 250, 50, 50);
 
-    private bool allQuestionsAnswered = false; // Czy wszystkie pytania zostały rozwiązane
-    private Panel levelChangePanel; // Panel zmiany poziomu
+    /// <summary>
+    /// Lista obszarów wywołujących pytania.
+    /// </summary>
+    private List<Rectangle> questionAreas = new List<Rectangle>();
 
-    private List<(Rectangle Area, string Text)> textAreas = new List<(Rectangle, string)>(); // Lista obszarów z tekstami
+    /// <summary>
+    /// Lista obszarów blokujących ruch gracza.
+    /// </summary>
+    private List<Rectangle> blockedAreas = new List<Rectangle>();
 
+    /// <summary>
+    /// Lista paneli graficznych dla obszarów.
+    /// </summary>
+    private List<Panel> areaPanels = new List<Panel>();
+
+    /// <summary>
+    /// Lista kontrolek graficznych dodanych do tła.
+    /// </summary>
+    private List<Control> areaGraphix = new List<Control>();
+
+    /// <summary>
+    /// Aktualny poziom gry.
+    /// </summary>
+    private int currentLevel = 1;
+
+    /// <summary>
+    /// Liczba żyć gracza.
+    /// </summary>
+    private int lives = 5;
+
+    /// <summary>
+    /// Flaga określająca, czy wszystkie pytania zostały rozwiązane.
+    /// </summary>
+    private bool allQuestionsAnswered = false;
+
+    /// <summary>
+    /// Panel zmiany poziomu.
+    /// </summary>
+    private Panel levelChangePanel;
+
+    /// <summary>
+    /// Lista obszarów z tekstami i ich zawartościami.
+    /// </summary>
+    private List<(Rectangle Area, string Text)> textAreas = new List<(Rectangle, string)>();
+
+    /// <summary>
+    /// Tworzy obszar tekstowy z przypisanym obrazem.
+    /// </summary>
+    /// <param name="area">Obszar, w którym pojawi się tekst.</param>
+    /// <param name="text">Treść tekstu.</param>
+    /// <param name="imagePath">Ścieżka do pliku obrazu.</param>
     private void CreateTextArea(Rectangle area, string text, string imagePath)
     {
         textAreas.Add((area, text));
@@ -52,7 +120,9 @@ public class MagicSchoolGame : Form
     }
 
 
-
+    /// <summary>
+    /// Konstruktor gry MagicSchoolGame.
+    /// </summary>
     public MagicSchoolGame()
     {
         this.Text = "Gra: Magiczna Szkoła";
@@ -65,7 +135,7 @@ public class MagicSchoolGame : Form
         CreateMainMenuDropdown(); // Dodanie rozwijanego menu
     }
 
-
+    /// <summary> /// Wczytuje poziom gry i ustawia odpowiednie elementy. /// </summary>
     private void LoadLevel(int level)
     {
         playerPosition = new Point(50, 50);
@@ -175,7 +245,10 @@ public class MagicSchoolGame : Form
         };
         backgroundPictureBox.Controls.Add(levelChangePanel);
     }
-
+    /// <summary>
+    /// Usuwa obszar pytania i odkrywa obszar przejscia na nstepny poziom
+    /// </summary>
+    /// <param name="index">Numer obszaru ktory ma zostac usuniety</param>
     private void RemoveQuestionArea(int index)
     {
         backgroundPictureBox.Controls.Remove(areaGraphix[index]);
@@ -190,7 +263,10 @@ public class MagicSchoolGame : Form
         }
     }
 
-
+    /// <summary>
+    /// Wyswietla tutorial do danego poziomu
+    /// </summary>
+    /// <param name="level">opisuje na ktory poziom gracz sie dostal</param>
     private void ShowLevelIntroduction(int level)
     {
         string introduction;
@@ -220,7 +296,11 @@ public class MagicSchoolGame : Form
 
 
 
-
+    /// <summary>
+    /// tworzy pole z zadaniem
+    /// </summary>
+    /// <param name="area">rozmiar pola</param>
+    /// <param name="imagePath">scierzka do obrazu wykorzystanego w polu zadania</param>
     private void CreateQuestionArea(Rectangle area, string imagePath)
     {
         questionAreas.Add(area);
@@ -239,7 +319,10 @@ public class MagicSchoolGame : Form
         pictureBox.Parent = backgroundPictureBox; // Ustawienie rodzica dla przezroczystości
     }
 
-
+    /// <summary>
+    /// tworzy obszar przez ktory nie da sie przejsc
+    /// </summary>
+    /// <param name="area">wymiary obszaru</param>
     private void CreateBlockedArea(Rectangle area)
     {
         blockedAreas.Add(area);
@@ -254,7 +337,11 @@ public class MagicSchoolGame : Form
         areaPanels.Add(panel);
         backgroundPictureBox.Controls.Add(panel);
     }
-
+    /// <summary>
+    /// Obsluga sterowania i wyrywanie interakcji z polami
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e">Wcisniety przycisk</param>
     private void OnKeyDown(object sender, KeyEventArgs e)
     {
         Console.WriteLine($"Pozostałe pytania: {questionAreas.Count}");
@@ -325,7 +412,10 @@ public class MagicSchoolGame : Form
     }
 
 
-
+    /// <summary>
+    /// Generuje i obsluguje zadania
+    /// </summary>
+    /// <param name="areaIndex">Numer pola z zadaniem</param>
     private void GenerateAndAskQuestion(int areaIndex)
     {
         isQuestionActive = true;
@@ -391,7 +481,10 @@ public class MagicSchoolGame : Form
 
         isQuestionActive = false;
     }
-
+    /// <summary>
+    /// Usuwa pola wyswietlajace tekst
+    /// </summary>
+    /// <param name="areaIndex">Numer pola z tekstem</param>
     private void HideTextArea(int areaIndex)
     {
         if (areaIndex >= 0 && areaIndex < textAreas.Count)
@@ -412,7 +505,9 @@ public class MagicSchoolGame : Form
     }
 
 
-
+    /// <summary>
+    /// Tworzy Dropdown menu
+    /// </summary>
     private void CreateMainMenuDropdown()
     {
         ToolStripDropDownButton menuDropdown = new ToolStripDropDownButton("Menu");
@@ -423,19 +518,27 @@ public class MagicSchoolGame : Form
         menuStrip.Items.Add(menuDropdown);
         this.Controls.Add(menuStrip);
     }
-
+    /// <summary>
+    /// restartuje gre
+    /// </summary>
     private void RestartGame()
     {
         lives = 5; // Przywrócenie żyć
         LoadLevel(currentLevel);
     }
-
+    /// <summary>
+    /// restartuje gre
+    /// </summary>
     private void ResetLevel()
     {
         lives = 5; // Przywrócenie pełnej liczby żyć
         LoadLevel(currentLevel); // Ponowne załadowanie bieżącego poziomu
     }
-
+    /// <summary>
+    /// Wyswietla okna z tekstem
+    /// </summary>
+    /// <param name="question">tekst od wyswietlenia</param>
+    /// <returns></returns>
     private string ShowInputDialog(string question)
     {
         Form inputForm = new Form();
@@ -454,7 +557,9 @@ public class MagicSchoolGame : Form
         inputForm.ShowDialog();
         return userInput;
     }
-
+    /// <summary>
+    /// generuje menu glowne
+    /// </summary>
     private void ShowMainMenu()
     {
         Form menuForm = new Form
@@ -502,7 +607,10 @@ public class MagicSchoolGame : Form
         menuForm.ShowDialog();
     }
 
-
+    /// <summary>
+    /// zapisuje ostatni odwiedony poziom
+    /// </summary>
+    /// <param name="level">numer ostatni odwiedzonego poziomu</param>
     private void SaveLastVisitedLevel(int level)
     {
         try
@@ -517,7 +625,10 @@ public class MagicSchoolGame : Form
     }
 
 
-
+    /// <summary>
+    /// wczytuje ostatni odwiedzony poziom
+    /// </summary>
+    /// <returns>na wszelki wypadek gdyby cos nie zadzialalo zostanie uruchomiony 1 poziom</returns>
     private int LoadLastVisitedLevel()
     {
         try
@@ -542,15 +653,10 @@ public class MagicSchoolGame : Form
     }
 
 
-    private void ShowSaveFilePath()
-    {
-        string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "savegame.txt");
-        MessageBox.Show($"Ścieżka zapisu pliku: {filePath}");
-    }
 
-
-
-
+    /// <summary>
+    /// Wywoluje program
+    /// </summary>
     [STAThread]
     public static void Main()
     {
