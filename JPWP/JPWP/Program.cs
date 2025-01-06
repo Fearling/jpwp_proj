@@ -26,6 +26,9 @@ public class MagicSchoolGame : Form
 
     private int lives = 5; // Liczba żyć gracza
 
+    private bool allQuestionsAnswered = false; // Czy wszystkie pytania zostały rozwiązane
+    private Panel levelChangePanel; // Panel zmiany poziomu
+
     private List<(Rectangle Area, string Text)> textAreas = new List<(Rectangle, string)>(); // Lista obszarów z tekstami
 
     private void CreateTextArea(Rectangle area, string text)
@@ -37,7 +40,7 @@ public class MagicSchoolGame : Form
             Location = new Point(area.X, area.Y),
             Size = new Size(area.Width, area.Height),
             BorderStyle = BorderStyle.FixedSingle,
-            //BackColor = Color.Green // Kolor obszaru tekstowego
+            BackColor = Color.Green // Kolor obszaru tekstowego
         };
 
         areaPanels.Add(panel);
@@ -64,6 +67,7 @@ public class MagicSchoolGame : Form
         questionAreas.Clear();
         blockedAreas.Clear();
         textAreas.Clear();
+        allQuestionsAnswered = false; // Resetowanie statusu pytań
         areaPanels.ForEach(panel => backgroundPictureBox.Controls.Remove(panel));
         areaPanels.Clear();
 
@@ -113,14 +117,29 @@ public class MagicSchoolGame : Form
         playerPictureBox.Location = playerPosition;
         backgroundPictureBox.Controls.Add(playerPictureBox);
 
-        Panel levelChangePanel = new Panel
+        levelChangePanel = new Panel
         {
             Location = new Point(levelChangeArea.X, levelChangeArea.Y),
             Size = new Size(levelChangeArea.Width, levelChangeArea.Height),
             BorderStyle = BorderStyle.FixedSingle,
-            BackColor = Color.Blue
+            BackColor = Color.Blue,
+            Visible = false // Ukrywamy na początku
         };
         backgroundPictureBox.Controls.Add(levelChangePanel);
+    }
+
+    private void RemoveQuestionArea(int index)
+    {
+        backgroundPictureBox.Controls.Remove(areaPanels[index]);
+        areaPanels.RemoveAt(index);
+        questionAreas.RemoveAt(index);
+
+        // Sprawdzenie, czy wszystkie pytania zostały rozwiązane
+        if (questionAreas.Count == 0)
+        {
+            allQuestionsAnswered = true;
+            levelChangePanel.Visible = true; // Pokazujemy pole zmiany poziomu
+        }
     }
 
 
@@ -261,16 +280,16 @@ public class MagicSchoolGame : Form
         switch (operators[currentLevel - 1])
         {
             case "+":
-                number1 = random.Next(1, 100);
-                number2 = random.Next(1, 100);
+                number1 = random.Next(1, 20);
+                number2 = random.Next(1, 20);
                 correctAnswer = number1 + number2;
                 break;
             case "-":
                 correctAnswer = number1 - number2;
                 while (correctAnswer < 0)
                 {
-                    number1 = random.Next(1, 100);
-                    number2 = random.Next(1, 100);
+                    number1 = random.Next(1, 20);
+                    number2 = random.Next(1, 20);
                     correctAnswer = number1 - number2;
                 }
                 break;
@@ -355,13 +374,6 @@ public class MagicSchoolGame : Form
     {
         lives = 5; // Przywrócenie pełnej liczby żyć
         LoadLevel(currentLevel); // Ponowne załadowanie bieżącego poziomu
-    }
-
-    private void RemoveQuestionArea(int index)
-    {
-        backgroundPictureBox.Controls.Remove(areaPanels[index]);
-        areaPanels.RemoveAt(index);
-        questionAreas.RemoveAt(index);
     }
 
     private string ShowInputDialog(string question)
